@@ -1,0 +1,283 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta name="theme-color" content="#3e8cd8"/>
+	<title>Documentation</title>
+	<link rel="apple-touch-icon" sizes="57x57" href="assets/favicon/apple-icon-57x57.png">
+	<link rel="apple-touch-icon" sizes="60x60" href="assets/favicon/apple-icon-60x60.png">
+	<link rel="apple-touch-icon" sizes="72x72" href="assets/favicon/apple-icon-72x72.png">
+	<link rel="apple-touch-icon" sizes="76x76" href="assets/favicon/apple-icon-76x76.png">
+	<link rel="apple-touch-icon" sizes="114x114" href="assets/favicon/apple-icon-114x114.png">
+	<link rel="apple-touch-icon" sizes="120x120" href="assets/favicon/apple-icon-120x120.png">
+	<link rel="apple-touch-icon" sizes="144x144" href="assets/favicon/apple-icon-144x144.png">
+	<link rel="apple-touch-icon" sizes="152x152" href="assets/favicon/apple-icon-152x152.png">
+	<link rel="apple-touch-icon" sizes="180x180" href="assets/favicon/apple-icon-180x180.png">
+	<link rel="icon" type="image/png" sizes="192x192"  href="assets/favicon/android-icon-192x192.png">
+	<link rel="icon" type="image/png" sizes="32x32" href="assets/favicon/favicon-32x32.png">
+	<link rel="icon" type="image/png" sizes="96x96" href="assets/favicon/favicon-96x96.png">
+	<link rel="icon" type="image/png" sizes="16x16" href="assets/favicon/favicon-16x16.png">
+	<link rel="manifest" href="assets/manifest.json">
+	<meta name="msapplication-TileColor" content="#ffffff">
+	<meta name="msapplication-TileImage" content="assets/favicon/ms-icon-144x144.png">
+	<meta name="theme-color" content="#ffffff">
+	<link rel="icon" href="assets/favicon/favicon.ico" type="image/x-icon"/>
+	<link rel="shortcut icon" href="assets/favicon/favicon.ico" type="image/x-icon"/>
+
+	<script>
+		"use strict";
+
+		var links = [
+						[ "assets/fonts/roboto.localstorage.css", "robotoFonts" ],
+						[ "assets/fonts/fontawesome.localstorage.css", "minFontsAwesome" ]
+					];
+
+		(function(){
+			links.forEach(function(element) {
+				checkCode(element[0], element[1]);
+			});
+		}());
+		
+		function addFont(obj) {
+		    var style = document.createElement('style');
+		    style.rel = 'stylesheet';
+		    document.head.appendChild(style);
+		    style.textContent = localStorage[obj];
+		}
+
+		function checkCode(link, id){
+		    try {
+		        if (localStorage[id]) {
+		            addFont(id);
+		        } else {
+		            var request = new XMLHttpRequest();
+		            request.open('GET', link, true);
+		            request.onload = function() {
+		                if (request.status >= 200 && request.status < 400) {
+		                    localStorage[id] = request.responseText;
+		                    addFont(id);
+		                }
+		            }
+		        	request.send();
+		        }
+		    } catch(ex) {
+		    }
+		}		
+	</script>
+
+	<link rel="stylesheet" href="assets/style.min.css">
+</head>
+
+<body>
+	<div id="page">
+
+		<!-- Sidebar beginning -->
+		<aside>
+			<div id="nav-header">
+				<i class="fas fa-bars mobile-visible" id="open-aside"></i>
+				<span class="mobile-hidden">Navigation</span>
+			</div>
+			<nav>
+				<ul>
+					<li class="js-scroll" data-scroll="short-description">
+						<i class="far fa-file-alt"></i>
+						<span class="mobile-hidden">Short Description</span>
+					</li>
+					<li class="js-scroll" data-scroll="installation-guide">
+						<i class="fas fa-desktop"></i>
+						<span class="mobile-hidden">Installation Guide</span>
+					</li>
+					<li class="js-scroll" data-scroll="basic-using">
+						<i class="fas fa-car"></i>
+						<span class="mobile-hidden">Basic Using</span>
+					</li>
+					<li class="js-scroll" data-scroll="uninstallation">
+						<i class="far fa-trash-alt"></i>
+						<span class="mobile-hidden">Uninstallation</span>
+					</li>
+					<li class="js-scroll" data-scroll="support-container">
+						<i class="far fa-question-circle"></i>
+						<span class="mobile-hidden">Support</span>
+					</li>
+				</ul>
+			</nav>
+			<div id="header-contacts" class="mobile-hidden">Contacts</div>
+			<div id="contacts" class="mobile-hidden">
+				<ul>
+					<li><a href="tel:+3(068)39-066-72">
+						<i class="fas fa-phone"></i>
+						+3 (068) 39-066-72
+					</a></li>
+					<li><a href="mailto:administration@gmail.com">
+						<i class="far fa-envelope"></i>
+						administration@gmail.com
+					</a></li>
+					<li><a href="skype:skype_contact">
+						<i class="fab fa-skype"></i>
+						skype_contact
+					</a></li>
+				</ul>
+			</div>
+			<div id="up-scroll-container" class="mobile-visible">
+				<i class="fas fa-arrow-up"></i>
+			</div>
+		</aside>
+		<!-- Sidebar end -->
+
+		<!-- Main content beginning -->
+		<div id="main-content">
+			<div id="content-title-container">
+				<div>
+					<h1>This is the Item Title</h1>
+					<span>by NPetrovich</span>
+				</div>
+			</div>
+			<div id="content-title-underline">
+				<div></div>
+				<div></div>
+			</div>
+			<div id="content">
+				<article id="short-description">
+					<h4>Short Description</h4>
+					<p>
+						Adrian Chiran consistently shares his work for free with other designers, this time around he is sharing Pheonix UI — a mobile UI kit for iOS that consists of twelve individual screens. First screen is for community sharing, similar to Instagram; users can share their photos, tag their locations and leave a comment. Then there is the user profile screen, where users can explore their inbox and change their profile settings, yes — there’s a separate screen for message inbox, a sign in screen, a screen for fitness applications that can track multiple user profiles at once and compare their performance, a calendar for businesses where team members can tag themselves in the events, on the visual content screens, people can tag themselves as having been to the particular location themselves. The screens come in two different style/color choices. Minimal dark, and minimal light.
+					</p>
+<div class="code-container">
+	<div>
+		1
+	</div>
+	<div>
+
+<pre><code>&lt;link rel=&quot;stylesheet&quot; href=&quot;rainbow-buttons-style-min.css&quot;&gt;</code></pre>
+
+		<div class="code-button-container">
+			<div class="copy code-button">copy</div>
+			<div class="source code-button">source</div>
+		</div>
+	</div>
+</div>
+					<p>
+						Adrian Chiran consistently shares his work for free with other designers, this time around he is sharing Pheonix UI — a mobile UI kit for iOS that consists of twelve individual screens. First screen is for community sharing, similar to Instagram; users can share their photos, tag their locations and leave a comment.
+					</p>
+				</article>
+				<article id="installation-guide">
+					<h4>Installation Guide</h4>
+					<p>
+						Adrian Chiran consistently shares his work for free with other designers, this time around he is sharing Pheonix UI — a mobile UI kit for iOS that consists of twelve individual screens. First screen is for community sharing, similar to Instagram; users can share their photos, tag their locations and <a href="https://www.youtube.com" target="_blank" rel="noopener">leave</a> a comment. Then there is the user profile screen, where users can explore their inbox and change their profile settings, yes — there’s a separate screen for message inbox, a sign in screen, a screen for fitness applications that can track multiple user profiles at once and compare their performance, a calendar for businesses where team members can tag themselves in the events, on the visual content screens, people can tag themselves as having been to the particular location themselves. The screens come in two different style/color choices. Minimal dark, and minimal light.
+					</p>
+<div class="code-container">
+	<div>
+		1 2 3 4 5 6 7 8 9 10
+	</div>
+	<div>
+
+<pre><code>.rb-round-volume-orange:active{
+	border: 0;
+	border-top: 5px solid #ffffff;
+}
+.rb-round-volume-orange:hover{
+	border-radius: 24px;
+}
+.rb-round-volume-orange:focus{
+	outline: none;
+}</code></pre>
+
+		<div class="code-button-container">
+			<div class="copy code-button">copy</div>
+			<div class="source code-button">source</div>
+		</div>
+	</div>
+</div>
+					<p>
+						Adrian Chiran consistently shares his work for free with other designers, this time around he is sharing Pheonix UI — a mobile UI kit for iOS that consists of twelve individual screens. First screen is for community sharing, similar to Instagram; users can share their photos, tag their locations and leave a comment.
+					</p>
+						<div class="warning">
+							<b>Notice:</b> Adrian Chiran consistently shares his work for free with other designers, this time around he is sharing Pheonix UI — a mobile UI kit for iOS that consists of twelve individual screens. First screen is for community sharing, similar to Instagram; users can share their photos, tag their locations and leave a comment.
+						</div>
+					<p>
+						Then there is the user profile screen, where users can explore their inbox and change their profile settings, yes — there’s a separate screen for message inbox, a sign in screen, a screen for fitness applications that can track multiple user profiles at once and compare their performance, a calendar for businesses where team members can tag themselves in the events, on the visual content screens, people can tag themselves as having been to the particular location themselves. The screens come in two different style/color choices. Minimal dark, and minimal light.
+					</p>
+				</article>
+				<article id="basic-using">
+					<h4>Basic Using</h4>
+					<p>
+						Adrian Chiran consistently shares his work for free with other designers, this time around he is sharing Pheonix UI — a mobile UI kit for iOS that consists of twelve individual screens. First screen is for community sharing, similar to Instagram; users can share their photos, tag their locations and leave a comment. Then there is the user profile screen, where users can explore their inbox and change their profile settings, yes — there’s a separate screen for message inbox, a sign in screen, a screen for fitness applications that can track multiple user profiles at once and compare their performance, a calendar for businesses where team members can tag themselves in the events, on the visual content screens, people can tag themselves as having been to the particular location themselves. The screens come in two different style/color choices. Minimal dark, and minimal light.
+					</p>
+					<div class="table-container">
+						<table>
+							<tr>
+								<th>ID</th>
+								<th>Description</th>
+								<th>Numbers</th>
+								<th>Comments</th>
+							</tr>
+							<tr>
+								<td>21</td>
+								<td>Text of the description</td>
+								<td>345 + 6895</td>
+								<td>My important comments</td>
+							</tr>
+							<tr>
+								<td>3</td>
+								<td>Lorem Ipsum is not here</td>
+								<td>69</td>
+								<td></td>
+							</tr>
+							<tr>
+								<td>77</td>
+								<td>Adrian Chiran consistently shares his work for free</td>
+								<td>369.26</td>
+								<td>Other comment</td>
+							</tr>
+							<tr>
+								<td>5</td>
+								<td></td>
+								<td>66</td>
+								<td>Kake is a lie</td>
+							</tr>
+							<tr>
+								<td>6</td>
+								<td>Description</td>
+								<td>0.0</td>
+								<td></td>
+							</tr>
+							<tr>
+								<td>12</td>
+								<td>Text of the description</td>
+								<td>76a</td>
+								<td>We will never contact you</td>
+							</tr>
+						</table>
+					</div>
+					<p>
+						Adrian Chiran consistently shares his work for free with other designers, this time around he is sharing Pheonix UI — a mobile UI kit for iOS that consists of twelve individual screens. First screen is for community sharing, similar to Instagram; users can share their photos, tag their locations and leave a comment.
+					</p>
+				</article>
+				<article id="uninstallation">
+					<h4>Uninstallation</h4>
+					<p>
+						Adrian Chiran consistently shares his work for free with other designers, this time around he is sharing Pheonix UI — a mobile UI kit for iOS that consists of twelve individual screens. First screen is for community sharing, similar to Instagram; users can share their photos, tag their locations and leave a comment. Then there is the user profile screen, where users can explore their inbox and change their profile settings, yes — there’s a separate screen for message inbox, a sign in screen, a screen for fitness applications that can track multiple user profiles at once and compare their performance, a calendar for businesses where team members can tag themselves in the events, on the visual content screens, people can tag themselves as having been to the particular location themselves. The screens come in two different style/color choices. Minimal dark, and minimal light.
+					</p>
+				</article>
+			</div>
+			<div id="support-container">
+				<h5>Support</h5>
+				<p>Adrian Chiran consistently shares his work for free with other designers,
+this time around he is sharing Pheonix UI — a mobile UI kit
+for iOS that consists of twelve individual screens.</p>
+				<form action="/" method="get">
+					<input type="text" name="name" value="" placeholder="John Smith">
+					<input type="email" name="email" value="" placeholder="your@email.com" required="">
+					<textarea name="text" rows="2" required="" placeholder="Write here message and we will contact you..."></textarea>
+					<input type="submit" value="send">
+				</form>
+			</div>
+		</div>
+		<!-- Main content end -->
+
+		<script>"use strict";window.onload=function(){function e(e){n(),document.getElementById(e).scrollIntoView()}function n(){var e=document.getElementsByTagName("aside")[0];e.id="",e.style.height="initial"}function t(e){var n="<pre>"+e.parentElement.parentElement.childNodes[1].lastChild.innerHTML+"</pre>";window.open().document.write(n)}function o(e){var n=document.createElement("TEXTAREA"),t=document.getElementById("page");n.value=e,t.appendChild(n),n.select(),document.execCommand("Copy"),t.removeChild(n),alert("Code copied")}"serviceWorker"in navigator&&navigator.serviceWorker.register("../service-worker.min.js");var c=document.getElementsByClassName("js-scroll");Array.prototype.forEach.call(c,function(n){n.onclick=function(){e(n.dataset.scroll)}}),document.getElementById("up-scroll-container").onclick=function(){e("main-content")},document.getElementById("open-aside").onclick=function(){var e=document.getElementsByTagName("aside")[0];"open-sidebar"==e.id?n():(e.id="open-sidebar",e.style.height=document.getElementById("main-content").offsetHeight+"px")},window.onresize=function(){window.innerWidth>1e3&&n()};var i=document.getElementsByClassName("source");Array.prototype.forEach.call(i,function(e){e.onclick=function(){t(e)}});var r=document.getElementsByClassName("copy");Array.prototype.forEach.call(r,function(e){e.onclick=function(){o(e.parentElement.parentElement.childNodes[1].lastChild.innerText)}})};</script>
+		<!-- <script type="text/javascript" src="assets/script.js"></script> -->
+	</div>
+</body>
+</html>
